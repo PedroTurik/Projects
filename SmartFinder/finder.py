@@ -1,6 +1,7 @@
 from queue import PriorityQueue
 import pygame as pg
 import pyautogui
+from MazeGen import Kruskal
 
 
 WIDTH, HEIGHT = 900, 500
@@ -135,7 +136,12 @@ def A_star():
         
         refresh()
 
-
+def Maze():
+    refresh()
+    maze = Kruskal(GRID_HEIGHT, GRID_WIDTH).generate()
+    for i, row in enumerate(maze):
+        for j, n in  enumerate(row):
+            board[i][j].clicked = (True if n else False)
 
 
 
@@ -165,6 +171,8 @@ def main():
                     BFS_DFS(1)
                 elif event.key == pg.K_a:
                     A_star()
+                elif event.key == pg.K_m:
+                    Maze()
                 elif event.key == pg.K_r:
                     refresh()
 
