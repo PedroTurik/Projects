@@ -103,12 +103,12 @@ def A_star():
         board[end[0]][end[1]].clicked = False
         run = True
         explore = -1
-        while heap:
+        while not heap.empty():
             if not run: break
             for event in pg.event.get():
                 if event.type == pg.QUIT:
                     run = False
-            clock.tick(30)
+            clock.tick(60)
             explore += 1
             _, steps, cur = heap.get()
             board[cur[0]][cur[1]].color = BORDO
