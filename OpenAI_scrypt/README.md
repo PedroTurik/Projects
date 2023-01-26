@@ -1,0 +1,1 @@
+Script called by a personal shell script to access the GPT API from the terminal
